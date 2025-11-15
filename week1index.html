@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Banoth Vamshi — Personal Portfolio</title>
+  <meta name="description" content="Personal portfolio page: introduction, skills, projects and contact form." />
+
+  <!-- Minimal inline styles only for readable layout (not required — structure is the focus) -->
+  <style>
+    :root{font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height:1.5}
+    body{margin:0;padding:1rem;max-width:900px;margin-inline:auto;color:#111}
+    header, main, footer, nav, section{padding:0.5rem 0}
+    header{border-bottom:1px solid #ddd}
+    .hero{display:flex;gap:1rem;align-items:center}
+    .avatar{width:120px;height:120px;border-radius:8px;object-fit:cover}
+    .skills{display:flex;flex-wrap:wrap;gap:.5rem}
+    .skill{background:#f0f0f0;padding:.25rem .5rem;border-radius:6px;font-size:.95rem}
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .card{border:1px solid #e6e6e6;padding:.75rem;border-radius:8px}
+    form{display:flex;flex-direction:column;gap:.5rem;max-width:560px}
+    label{font-weight:600;font-size:.95rem}
+    input,textarea,button,select{font:inherit;padding:.5rem;border:1px solid #ccc;border-radius:6px}
+    input:focus,textarea:focus{outline:2px solid Highlight;outline-offset:2px}
+    footer{border-top:1px solid #ddd;margin-top:1rem;padding-top:1rem}
+    .meta{font-size:.9rem;color:#555}
+  </style>
+</head>
+<body>
+  <!-- Semantic header with navigation -->
+  <header>
+    <div class="hero" role="banner">
+      <img src="https://via.placeholder.com/240x240.png?text=Avatar" alt="Vamshi smiling" class="avatar" width="120" height="120" />
+      <div>
+        <h1 id="name">Banoth Vamshi</h1>
+        <p class="meta">Aspiring Frontend Developer • Learning HTML, CSS & JavaScript</p>
+        <nav aria-label="Primary" role="navigation">
+          <ul style="display:inline-flex;gap:0.75rem;list-style:none;padding:0;margin:.5rem 0 0 0">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content using semantic <main> -->
+  <main id="main" role="main">
+    <!-- About section -->
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p>
+        Hi — I'm <strong>Banoth Vamshi</strong>. I'm learning web development and this is my Week 1 project where I practise building semantic HTML pages.
+        I enjoy creating clean, accessible web pages and am currently practising HTML structure, forms, and developer tools.
+      </p>
+      <p>
+        Quick facts:
+      </p>
+      <ul>
+        <li>Location: India</li>
+        <li>Learning: HTML, basic accessibility, developer tools</li>
+        <li>Goal: Build interactive single-page applications</li>
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+      <div class="skills" role="list" aria-label="List of skills">
+        <span class="skill" role="listitem">HTML5</span>
+        <span class="skill" role="listitem">Semantic Markup</span>
+        <span class="skill" role="listitem">Developer Tools</span>
+        <span class="skill" role="listitem">Basic CSS</span>
+        <span class="skill" role="listitem">Git & GitHub</span>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+      <p>Below are a few simple projects and demos I've built.</p>
+      <div class="projects" role="list">
+        <article class="card" role="listitem" aria-labelledby="p1-title">
+          <h3 id="p1-title">Personal Bio Page</h3>
+          <p>Static HTML page that introduces me and uses semantic tags.</p>
+          <p><a href="#" aria-label="Open demo: Personal Bio Page">View demo</a></p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="p2-title">
+          <h3 id="p2-title">Contact Form</h3>
+          <p>Simple contact form with client-side validation attributes.</p>
+          <p><a href="#contact" aria-label="Open contact form on this page">Contact me</a></p>
+        </article>
+
+        <article class="card" role="listitem" aria-labelledby="p3-title">
+          <h3 id="p3-title">Image Gallery</h3>
+          <p>Responsive gallery using only HTML and flexible layout.</p>
+          <p><a href="#" aria-label="Open demo: Image Gallery">View demo</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact form with labels and accessible attributes -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>If you'd like to reach out, use the form below. (This example uses client-side validation. To actually send messages you'll need a server or use a service like Formspree.)</p>
+
+      <form id="contact-form" action="#" method="post" novalidate aria-describedby="form-instructions">
+        <p id="form-instructions" class="meta">
+          Fields marked with <span aria-hidden="true">*</span> are required.
+        </p>
+
+        <div>
+          <label for="fullName">Full name <span aria-hidden="true">*</span></label>
+          <input id="fullName" name="fullName" type="text" required placeholder="Your full name" minlength="2" aria-required="true" />
+        </div>
+
+        <div>
+          <label for="email">Email address <span aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com" aria-required="true" />
+        </div>
+
+        <div>
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" placeholder="What is this about?" />
+        </div>
+
+        <div>
+          <label for="message">Message <span aria-hidden="true">*</span></label>
+          <textarea id="message" name="message" rows="6" required placeholder="Write your message here" aria-required="true"></textarea>
+        </div>
+
+        <div>
+          <label for="contact-method">Preferred contact method</label>
+          <select id="contact-method" name="contactMethod" aria-label="Preferred contact method">
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="none" selected>Don't specify</option>
+          </select>
+        </div>
+
+        <div>
+          <button type="submit" id="submit">Send message</button>
+        </div>
+
+        <!-- Simple, progressive enhancement: client-side validation message handling -->
+        <div id="form-status" role="status" aria-live="polite" style="margin-top:.5rem;color:#05386b"></div>
+      </form>
+
+      <script>
+        // Minimal client-side enhancement: show friendly error messages and prevent submit since action="#"
+        (function () {
+          const form = document.getElementById('contact-form');
+          const status = document.getElementById('form-status');
+
+          form.addEventListener('submit', function (ev) {
+            ev.preventDefault(); // prevent actual submission in this demo
+            status.textContent = '';
+            // HTML5 constraint validation API
+            if (!form.checkValidity()) {
+              // Find the first invalid control and focus it
+              const firstInvalid = form.querySelector(':invalid');
+              firstInvalid.focus();
+              // Build a short message
+              const label = form.querySelector(`label[for="${firstInvalid.id}"]`);
+              const fieldName = label ? label.textContent.replace('*','').trim() : firstInvalid.name;
+              status.textContent = `Please complete the "${fieldName}" field correctly.`;
+              return;
+            }
+
+            // If valid, show a success message (in a real project you'd submit to a server)
+            status.textContent = 'Thanks — your message looks good! (This demo does not send messages.)';
+            form.reset();
+          }, false);
+        })();
+      </script>
+    </section>
+  </main>
+
+  <!-- Footer with contact links and accessibility -->
+  <footer role="contentinfo">
+    <p class="meta">Built with semantic HTML • Validate at <a href="https://validator.w3.org/" rel="noopener noreferrer" target="_blank">validator.w3.org</a></p>
+    <p class="meta">Find me on <a href="#" rel="noopener noreferrer">GitHub</a> • <a href="#" rel="noopener noreferrer">LinkedIn</a></p>
+  </footer>
+</body>
+</html>
